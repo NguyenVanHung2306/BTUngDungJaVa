@@ -3,47 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Create User</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form action="#" th:action="'/Users/create'" th:object="${user}" method="post">
-    <table>
-        <tr>
-            <td>Username</td>
-            <td>
-                <input type="text" th:field="*{username}">
-            </td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>
-                <input type="email" th:field="*{email}">
-            </td>
-        </tr>
-        <tr>
-            <td>First Name</td>
-            <td>
-                <input type="text" th:field="*{firstname}">
-            </td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td>
-                <input type="text" th:field="*{lastName}">
-            </td>
-        </tr>
-        <tr>
-            <td>Role</td>
-            <td>
-                <select th:field="*{role}">
-                    <option th:each="role : ${roles}"
-                            th:value="${role.role_id}"
-                            th:text="${role.role_name}">
-                    </option>
-                </select>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Create User">
-</form>
+<div class="container mt-5">
+    <h2>Create User</h2>
+    <form action="#" th:action="'/Users/create'" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" th:field="*{username}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}">
+        </div>
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" th:field="*{firstname}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" id="role" th:field="*{role}">
+                <option th:each="role : ${roles}"
+                        th:value="${role.role_id}"
+                        th:text="${role.role_name}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
+</div>
+<!-- Bootstrap JS and dependencies (optional but recommended) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
