@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+<form action="#" th:action="'/Users/create'" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td>
+                <input type="text" th:field="*{username}">
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="email" th:field="*{email}">
+            </td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>
+                <input type="text" th:field="*{firstname}">
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>
+                <input type="text" th:field="*{lastName}">
+            </td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>
+                <select th:field="*{role}">
+                    <option th:each="role : ${roles}"
+                            th:value="${role.role_id}"
+                            th:text="${role.role_name}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Create User">
+</form>
+</body>
+</html>

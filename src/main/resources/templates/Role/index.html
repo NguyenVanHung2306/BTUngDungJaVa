@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<header>
+  <div>
+    Trang quản lý vai trò
+  </div>
+</header>
+
+<table class="table">
+  <thead class="thead-dark">
+  <th>
+    STT
+  </th>
+  <th>
+    ID Vai trò
+  </th>
+  <th>
+    Tên Vai trò
+  </th>
+  <th>
+    Trạng thái
+  </th>
+  <th>
+    Action
+  </th>
+  </thead>
+  <tbody>
+  <tr th:each="role : ${roles}">
+    <td th:text="${roleStat.index+1}"></td>
+    <td th:text="${role.role_id}"></td>
+    <td th:text="${role.role_name}"></td>
+    <td th:text="${role.isDeleted ? 'Đã xóa' : 'Hoạt động'}"></td>
+    <td>
+      <a th:href="'/Roles/edit/'+${role.role_id}">Edit</a>
+      <a th:href="'/Roles/delete/'+${role.role_id}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<button onclick="location.href='/Roles/new'">Create</button>
+</body>
+</html>

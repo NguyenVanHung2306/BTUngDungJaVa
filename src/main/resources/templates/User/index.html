@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+</head>
+<header>
+    <div>
+        Trang quản lý người dùng
+    </div>
+</header>
+<body>
+<table class="table">
+    <thead class="thead-dark">
+    <th>
+        STT
+    </th>
+    <th>
+        ID
+    </th>
+    <th>
+        Tên
+    </th>
+    <th>
+        Email
+    </th>
+    <th>
+        Tên đăng nhập
+    </th>
+    <th>
+        Vai trò
+    </th>
+    <th>
+        Trạng thái
+    </th>
+    <th>
+        Action
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${userStat.index+1}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="|${user.firstname} ${user.lastName}|"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.role.role_name}"></td>
+        <td th:text="${user.isDeleted ? 'Đã xóa' : 'Hoạt động'}"></td>
+        <td>
+            <a th:href="'/Users/edit/'+${user.id}">Edit</a>
+            <a th:href="'/Users/delete/'+${user.id}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button onclick="location.href='/Users/new'">Tạo mới</button>
+</body>
+</html>
